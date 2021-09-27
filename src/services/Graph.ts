@@ -4,6 +4,23 @@ import * as fs from 'fs';
 import { start } from "repl";
 
 export class Graph implements GraphInterface{
+    getRouteDistance(route: string): number {
+        let totalWeight = 0;
+        for (let i = 0; i< route.length-1; i++){
+            let currentNode = this.nodes[route[i]];
+            let flag = false;
+            for(let connection of currentNode){
+                if (connection.name == route[i+1]){
+                    totalWeight+=connection.weight
+                    flag = true;
+                }
+            }
+            if (!flag){
+                return Infinity;
+            }
+        }
+        return totalWeight;
+    }
     nodes: TrainNode[][] = [];
     private numberOfVertex = 0;
 

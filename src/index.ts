@@ -15,6 +15,12 @@ else {
     else console.log("Problem #1: ", problem1);
 }
 
+/* 1. The distance of the route A-B-C. but done only recurring on the nodes rather than searching between paths */
+let problem1bis = graph.getRouteDistance("ABC");
+if (problem1bis == Infinity) console.log("Problem #1 bis: NO SUCH ROUTE");
+else console.log("Problem #1 bis: ", problem1bis);
+
+
 
 /*2. The distance of the route A-D */
 let distance2 = graph.getShortestPathWeight("A","D");
@@ -32,6 +38,11 @@ else{
     else console.log("Problem #3: ", problem3);
 }
 
+/* The same but optimally */
+let problem3bis = graph.getRouteDistance("ADC");
+if (problem3bis == Infinity) console.log("Problem #3 bis: NO SUCH ROUTE");
+else console.log("Problem #3 bis: ", problem3bis);
+
 /* 4. The distance of the route A-E-B-C-D. */
 let distance4a = graph.getShortestPath("A","E");
 let distance4b = graph.getShortestPath("E","B");
@@ -45,6 +56,12 @@ else{
     else console.log("Problem #4: ",problem4 );
 }
 
+/* The same but optimally */
+let problem4bis = graph.getRouteDistance("AEBCD");
+if (problem4bis == Infinity) console.log("Problem #4 bis: NO SUCH ROUTE");
+else console.log("Problem #4 bis: ", problem4bis);
+
+
 /*5. Distance of the route A-E-D */
 let distance5a = graph.getShortestPath("A","E");
 let distance5b = graph.getShortestPath("E","D");
@@ -55,6 +72,12 @@ else{
     if (problem5 == Infinity) console.log("Problem #5: NO SUCH ROUTE");
     else console.log("Problem #5: ", problem5);
 }
+
+/* The same but optimally */
+let problem5bis = graph.getRouteDistance("AED");
+if (problem5bis == Infinity) console.log("Problem #3 bis: NO SUCH ROUTE");
+else console.log("Problem #4 bis: ", problem5bis);
+
 
 /* 6. Number of Routes starting at C and ending at C with a maximum of 3 Stops */
 console.log("Problem #6: ", graph.getAllPaths("C","C").filter(function(value,index, array){ return value.length<= 4}).length);

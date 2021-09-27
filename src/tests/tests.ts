@@ -22,6 +22,7 @@ describe ("Problem #1: Distance of route A-B-C", () => {
     });
 });
 
+
 describe ("Problem #2: Distance of route A-D", () => {
 
 
@@ -120,5 +121,23 @@ describe ("Problem #10:", () => {
             }
             return weight<30});
         expect(paths.length).to.be.equal(7);
+    });
+});
+
+describe ("Direct mode - : Distance of route A-B-C", () => {
+    
+
+    it ("Path distance should be equal to 9",() =>{
+        let distance = graph.getRouteDistance("ABC");
+        expect(distance).to.be.equal(9);
+    });
+});
+
+describe ("Direct mode - : Distance of route A-E-D", () => {
+    
+
+    it ("Path distance should be equal to 9",() =>{
+        let distance = graph.getRouteDistance("AED");
+        expect(distance).to.be.equal(Infinity);
     });
 });
